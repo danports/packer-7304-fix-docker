@@ -8,7 +8,7 @@ RUN go get github.com/hashicorp/packer
 
 WORKDIR $GOPATH/src/github.com/hashicorp/packer
 
-RUN git revert e189db97d && /bin/bash scripts/build.sh
+RUN git revert e189db97d && /bin/bash scripts/build.sh && rm -rf $GOPATH/src
 
 WORKDIR $GOPATH
 ENTRYPOINT ["bin/packer"]
